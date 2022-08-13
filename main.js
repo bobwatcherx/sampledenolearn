@@ -1,6 +1,7 @@
 import {
    serve,
-   json
+   json,
+   validateRequest
  } from "https://deno.land/x/sift@0.5.0/mod.ts";
  const quotes = [
   {
@@ -13,7 +14,18 @@ import {
   },
 ];
 
-async function handledata(){
+async function handledata(request:Request){
+  const { error } = await validateRequest(request, {
+    GET: {},
+    POST:{
+      body: ["quote", "author"]
+    }
+  });
+  if (request.method === "POST") {
+     const { quote, author } = body as { quote: string; author: string };
+        quotes.push({ quote, author });
+        return json({ quote, author }, { status: 201 });
+      }
   return json({quotes})
 
 }
