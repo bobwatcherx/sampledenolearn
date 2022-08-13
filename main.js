@@ -24,7 +24,10 @@ async function handledata(request:Request){
   if (request.method === "POST") {
      const { quote, author } = body as { quote: string; author: string };
         quotes.push({ quote, author });
-        return json({ quote, author }, { status: 201 });
+  return json("nice123")
+
+        // return json({ quote, author }, { status: 201 });
+        // return json({ quote, author }, { status: 201 });
       }
   return json("nice123")
 
