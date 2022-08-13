@@ -5,7 +5,7 @@ async function handledata(){
 
 }
 serve({
-  "/": handledata(),
+  "/":()=> handledata,
 
 });
 
