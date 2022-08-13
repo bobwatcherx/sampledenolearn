@@ -26,7 +26,7 @@ async function handledata(request:Request){
         quotes.push({ quote, author });
         return json({ quote, author }, { status: 201 });
       }
-  return json({quotes})
+  return json({quote,author})
 
 }
 serve({
