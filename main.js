@@ -32,7 +32,9 @@ async function handledata(request:Request){
 
 }
 serve({
-  "/":handledata ,
+  "/": (request, connInfo, params)=>{
+    return new Response(JSON.stringify(request));
+  },  
 
 });
 
